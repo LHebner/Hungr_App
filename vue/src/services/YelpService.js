@@ -13,5 +13,4 @@ export default {
   getByCity(city) {
     return http.get(`?location=${city}`);
   }
-  
 }
