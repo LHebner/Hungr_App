@@ -15,6 +15,15 @@
         required
         autofocus
       />
+      <label for="email" class="sr-only">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Email"
+        v-model="user.email"
+        required
+      />
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -33,7 +42,7 @@
         required
       />
       <router-link id ="link" :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click="register()">
         Create Account
       </button>
     </form>
@@ -49,6 +58,7 @@ export default {
     return {
       user: {
         username: '',
+        email: '',
         password: '',
         confirmPassword: '',
         role: 'user',

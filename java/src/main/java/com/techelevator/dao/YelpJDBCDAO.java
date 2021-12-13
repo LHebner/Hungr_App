@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 import java.util.List;
 
+import com.techelevator.services.YelpDAO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -14,7 +15,7 @@ import com.techelevator.model.YelpRestaurantsResponse;
 
 @CrossOrigin
 @Component
-public class YelpJDBCDAO {
+public class YelpJDBCDAO implements YelpDAO {
 
     private final String BASE_URL = "https://api.yelp.com/v3/";
     private final String TOKEN;

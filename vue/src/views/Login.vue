@@ -32,7 +32,7 @@
         required
       />
       <router-link id="link" :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <button type="submit" v-on:click.prevent="login()">Sign in</button>
     </form>
   </div>
 </template>

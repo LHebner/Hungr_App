@@ -2,7 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.services.YelpService;
 
-public interface RastaurantDAO {
+public interface RestaurantDAO {
 
 
 

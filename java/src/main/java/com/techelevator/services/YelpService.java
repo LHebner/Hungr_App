@@ -11,6 +11,6 @@ public interface YelpService {
 
     List<Restaurant> getRestaurantsWithRadius(String zipCode, String category, String radius);
 
-    YelpService getRestaurantByID(String restaurantID);
+    Restaurant getRestaurantByID(String restaurantID);
 
 }

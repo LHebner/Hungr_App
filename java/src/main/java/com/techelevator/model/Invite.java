@@ -5,6 +5,7 @@ public class Invite {
     private Long id;
     private int hostId;
     private int attendeeId;
+    private int restaurantId;
 
     public Long getId() {
         return id;
@@ -28,5 +29,13 @@ public class Invite {
 
     public void setAttendeeId(int attendeeId) {
         this.attendeeId = attendeeId;
+    }
+
+    public int getRestaurantIdId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantIdId(int restaurantId) {
+        this.restaurantId = restaurantId;
     }
 }
