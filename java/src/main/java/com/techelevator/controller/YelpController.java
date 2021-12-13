@@ -23,21 +23,21 @@ public class YelpController {
 //        this.yelpDAO = yelpDAO ;
 //    }
 
-    @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
-//    public Restaurant[] getRestaurants(@RequestHeader String zipCode, @RequestHeader String category,
-//                                       @RequestHeader String radius) {
-    public List<RestYelpService> filterByStateAndCity(@RequestParam String state, @RequestParam(required = false) String city) {
-        List<Restaurant> restaurantList = new ArrayList<>();
-
-
-        if( radius.equals("") ) {
-            restaurantList = yelpDAO.getRestaurantsNoRadius(zipCode, category);
-        } else {
-            restaurantList = yelpDAO.getRestaurantsWithRadius(zipCode, category, radius);
-        }
-        Restaurant[] restaurantArray = new Restaurant[restaurantList.size()];
-        return restaurantList.toArray(restaurantArray);
-    }
+//    @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
+////    public Restaurant[] getRestaurants(@RequestHeader String zipCode, @RequestHeader String category,
+////                                       @RequestHeader String radius) {
+//    public List<RestYelpService> filterByStateAndCity(@RequestParam String state, @RequestParam(required = false) String city) {
+//        List<Restaurant> restaurantList = new ArrayList<>();
+//
+//
+//        if( radius.equals("") ) {
+//            restaurantList = yelpDAO.getRestaurantsNoRadius(zipCode, category);
+//        } else {
+//            restaurantList = yelpDAO.getRestaurantsWithRadius(zipCode, category, radius);
+//        }
+//        Restaurant[] restaurantArray = new Restaurant[restaurantList.size()];
+//        return restaurantList.toArray(restaurantArray);
+//    }
 
 
     @ResponseStatus
