@@ -4,6 +4,7 @@ import com.techelevator.model.Invite;
 
 import java.util.List;
 
+
 public class InviteJDBCDAO implements InviteDAO {
 
     @Override

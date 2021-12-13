@@ -28,9 +28,11 @@ public class InviteController {
 
 	private InviteDAO inviteDAO;
 	
-	public InviteController(InviteDAO inviteDAO) {
-		this.inviteDAO = inviteDAO;
-    }
+//	public InviteController(InviteDAO inviteDAO) {
+//		this.inviteDAO = inviteDAO;
+//    }
+
+
 
 
 
