@@ -1,15 +1,18 @@
 <template>
   <div>
-    
+    <restaurant-card />
   </div>
 </template>
 
 <script>
-export default {
+import RestaurantCard from '../components/RestaurantCard.vue'
 
+export default {
+  components: { 
+    RestaurantCard
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>
