@@ -19,7 +19,22 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    rejects: [],
+    favorites: [],
+    restaurants: [],
+    restaurant: {
+      id: '',
+      name: '',
+      image_url: '',
+      url: '',
+      review_count: Number,
+      categories: [],
+      rating: Number,
+      location: [],
+      display_phone: '',
+      price: ''
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +52,41 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+      state.restaurants = [];
+      state.restaurant = {};
+    },
+    ADD_RESTAURANTS(state, data) {
+      state.restaurants = [];
+      let rejectSet = new Set();
+      state.rejects.forEach( reject => {
+        rejectSet.add(reject.id);
+      });
+      data.forEach( business => {
+        state.restaurant = business;
+        if (!rejectSet.has(state.restaurant.id)) {
+          state.restaurants.push(state.restaurant);
+        }
+      });
+    },
+    REMOVE_RESTAURANT(state) {
+      state.restaurants.shift();
+    },
+    ADD_REJECTS(state, business) {
+      state.restaurant = business;
+      state.rejects.push(state.restaurant);
+    },
+    MAKE_FAVORITES(state,data) {
+      state.favorites = [];
+      data.forEach( business => {
+        state.restaurant = business;
+        state.favorites.push(state.restaurant);
+      });
+    },
+    DELETE_FAVORITES(state, businessID) {
+      let temporary = state.favorites.filter( (favorite) => {
+        return businessID != favorite.id;
+      });
+      state.favorites = temporary;
     }
   }
 })

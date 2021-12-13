@@ -1,16 +1,42 @@
 import axios from 'axios';
 
-const http = axios.create({
-  baseURL: "https://api.yelp.com/v3/businesses/search"
-});
+// const http = axios.create({
+//   baseURL: "https://api.yelp.com/v3/businesses/search"
+// });
 
 export default {
 
-  getByZip(zipCode) {
-    return http.get(`?location=${zipCode}`);
+  getRestaurantsNoRadius(zipCode, category) {
+    return axios.get(`/businesses`, {
+      headers : {
+        'zipCode': zipCode,
+        'category': category,
+        'radius': ''
+      }
+    })
   },
-
-  getByCity(city) {
-    return http.get(`?location=${city}`);
+  getRestaurantsWithRadius(zipCode, category, radius) {
+    return axios.get(`/businesses`, {
+      headers : {
+        'zipCode': zipCode,
+        'category': category,
+        'radius': radius
+      }
+    })
+  },
+  getBusinessByID(businessID) {
+    return axios.get(`/businesses/${businessID}`)
+  },
+  getReviews(businessID) {
+    return axios.get(`/reviews/${businessID}`)
+  },
+  addInvites(businessID) {
+    return axios.post(`/invites/${businessID}`)
+  },
+  getInvites() {
+    return axios.get('/invites')
+  },
+  deleteInvites(businessID) {
+    return axios.delete(`/invites/${businessID}`)
   }
 }
