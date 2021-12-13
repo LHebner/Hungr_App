@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,14 +19,17 @@ public class YelpController {
 
     private YelpDAO yelpDAO;
 
-    public YelpController(YelpDAO yelpDAO) {
-        this.yelpDAO = yelpDAO ;
-    }
+//    public YelpController(YelpDAO yelpDAO) {
+//        this.yelpDAO = yelpDAO ;
+//    }
 
-    @RequestMapping(path = "/businesses", method = RequestMethod.GET)
-    public Restaurant[] getRestaurants(@RequestHeader String zipCode, @RequestHeader String category,
-                                       @RequestHeader String radius) {
-        List<Restaurant> restaurantList = null;
+    @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
+//    public Restaurant[] getRestaurants(@RequestHeader String zipCode, @RequestHeader String category,
+//                                       @RequestHeader String radius) {
+    public List<RestYelpService> filterByStateAndCity(@RequestParam String state, @RequestParam(required = false) String city) {
+        List<Restaurant> restaurantList = new ArrayList<>();
+
+
         if( radius.equals("") ) {
             restaurantList = yelpDAO.getRestaurantsNoRadius(zipCode, category);
         } else {
@@ -34,6 +38,8 @@ public class YelpController {
         Restaurant[] restaurantArray = new Restaurant[restaurantList.size()];
         return restaurantList.toArray(restaurantArray);
     }
+
+
     @ResponseStatus
     @RequestMapping(value = "/business/add", method = RequestMethod.POST)
 //    public void addShow(@Valid @RequestBody AnimeList animeList)
