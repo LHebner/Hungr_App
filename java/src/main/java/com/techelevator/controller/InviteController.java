@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import java.util.List;
 import java.security.Principal;
 
+import com.techelevator.services.RestYelpService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.InviteDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.Restaurant;
+
+import javax.validation.Valid;
 
 
 @RestController

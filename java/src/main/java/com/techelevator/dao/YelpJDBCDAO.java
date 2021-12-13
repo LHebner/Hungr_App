@@ -1,10 +1,11 @@
-package com.techelevator.services;
+package com.techelevator.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.client.RestTemplate;
@@ -13,12 +14,16 @@ import com.techelevator.model.YelpRestaurantsResponse;
 
 @CrossOrigin
 @Component
-public class RestYelpService implements YelpService {
+public class YelpJDBCDAO {
 
     private final String BASE_URL = "https://api.yelp.com/v3/";
     private final String TOKEN;
     private RestTemplate restTemplate = new RestTemplate();
 
+    private JdbcTemplate jdbcTemplate;
+    public YelpJDBCDAO(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
     public RestYelpService(@Value("${yelp.api.key}") String TOKEN) {
         this.TOKEN = TOKEN;
     }
@@ -26,7 +31,7 @@ public class RestYelpService implements YelpService {
     @Override
     public List<Restaurant> getRestaurantsNoRadius(String zipCode, String category) {
         YelpRestaurantsResponse response = restTemplate.exchange(BASE_URL +
-                "businesses/search?location={zipCode}&term={category}&limit=10",
+                        "businesses/search?location={zipCode}&term={category}&limit=10",
                 HttpMethod.GET, makeAuthEntity(TOKEN), YelpRestaurantsResponse.class, zipCode, category).getBody();
         return response.getRestaurants();
     }
@@ -45,7 +50,7 @@ public class RestYelpService implements YelpService {
     @Override
     public List<Restaurant> getRestaurantsWithRadius(String zipCode, String category, String radius) {
         YelpRestaurantsResponse response = restTemplate.exchange(BASE_URL +
-                "businesses/search?location={zipCode}&term={category}&radius={radius}&limit=10",
+                        "businesses/search?location={zipCode}&term={category}&radius={radius}&limit=10",
                 HttpMethod.GET, makeAuthEntity(TOKEN), YelpRestaurantsResponse.class, zipCode, category, radius).getBody();
         return response.getRestaurants();
     }
