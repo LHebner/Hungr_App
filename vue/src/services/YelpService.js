@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const http = axios.create({
-//   baseURL: "https://api.yelp.com/v3/businesses/search"
+//   baseURL: "https://localhost:8080"
 // });
 
 export default {
@@ -17,6 +17,18 @@ export default {
   },
   getReviews(businessID) {
     return axios.get(`/reviews/${businessID}`)
+  },
+  createEvent(invite) {
+    return axios.post(`invites/save`, invite)
+  },
+  getEvents() {
+    return axios.get(`/invites`)
+  },
+  getEventById(eventId) {
+    return axios.get(`/invites/${eventId}`)
+  },
+  getEventDetails(eventId) {
+    return axios.get(`/invites/${eventId}/restaurants`)
   },
   addInvites(businessID) {
     return axios.post(`/invites/${businessID}`)

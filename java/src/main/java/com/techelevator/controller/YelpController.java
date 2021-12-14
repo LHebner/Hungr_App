@@ -16,7 +16,6 @@ public class YelpController {
     @RequestMapping(path = "/business", method = RequestMethod.GET)
 
     public Restaurant[] filterByStateAndCity(@RequestParam String zipCode, @RequestParam(required = false) String category, @RequestParam String radius) {
-
         System.out.println("it worked?!");
         System.out.println(yelpService);
         return yelpService.getRestaurantsWithRadius(zipCode, category, radius);

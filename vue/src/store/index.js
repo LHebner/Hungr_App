@@ -18,8 +18,10 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    savedRestaurants: [],
     token: currentToken || '',
     user: currentUser || {},
+    returnedRestaurants: [],
     rejects: [],
     favorites: [],
     restaurants: [],
