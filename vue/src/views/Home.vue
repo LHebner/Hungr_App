@@ -114,5 +114,35 @@ export default {
 </script>
 
 <style>
+  #zipMessage {
+    margin-top: 100px;
+  }
 
+  #distanceRadius {
+    width: 25%;
+    color: black;
+  }
+
+  #category {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #category div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 5px;
+    height: 50px;
+  }
+
+  #category div input{
+    height: 30px;
+    align-self: center;
+  }
+
+  #category div label {
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
 </style>

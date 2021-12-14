@@ -80,8 +80,8 @@ body {
   background-color: #312b5f;
 }
 form{
-  height: 520px;
-  width: 400px;
+  height: auto;
+  width: 60%;
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
   transform: translate(-50%, -50%);
@@ -135,7 +135,7 @@ button {
 }
 #link {
   display: block;
-  margin: 30px 125px 0 125px;
+  margin: 30px 300px 0 300px;
   width: 150px;
   border-radius: 3px;
   padding:5px;
