@@ -99,14 +99,41 @@ export default {
         yelpService.getRestaurantsNoRadius(this.business.zipCode, this.business.category)
         .then( (response) => {
           this.$store.commit("ADD_RESTAURANTS", response.data);
-          this.$router.push("/restaurants");
-        });
+          this.$router.push("restaurants");
+        }) .catch(error => {
+          if (error.response) {
+          this.errorMsg =
+            "Response received was '" +
+            error.response.statusText +
+            "'.";
+        } else if (error.request) {
+          this.errorMsg =
+            "Server could not be reached.";
+        } else {
+          this.errorMsg =
+            "Request could not be created.";
+        }
+                
+            }
+        )
       } else {
         yelpService.getRestaurantsWithRadius(this.business.zipCode, this.business.category, 
         this.business.radius).then( (response) => {
           this.$store.commit("ADD_RESTAURANTS", response.data);
-          this.$router.push("/restaurants");
-        });
+          this.$router.push("restaurants");
+        }) .catch( error => {
+          if (error.response) {
+            this.errorMsg =
+              "Response received was '" +
+              error.response.statusText +
+              "'.";
+        } else if (error.request) {
+            this.errorMsg =
+            "Server could not be reached.";
+        } else {
+            this.errorMsg = "Request could not be created.";
+        }
+          console.log (this.errorMsg)})
       }
     }
   }
