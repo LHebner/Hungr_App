@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -7,13 +9,16 @@ public class Restaurant {
 
     private String id;
     private String name;
-    private String image_url;
+    @JsonProperty("image_url")
+    private String imageUrl;
     private String url;
-    private int review_count;
-    private List<RestaurantCategory> categories;
+    @JsonProperty("review_count")
+    private int reviewCount;
+    private RestaurantCategory[] categories;
     private BigDecimal rating;
     private RestaurantLocation location;
-    private String phone;
+    @JsonProperty("display_phone")
+    private String displayPhone;
     private String price;
 
     public String getId() {
@@ -32,12 +37,28 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public int getReviewCount() {
+        return reviewCount;
+    }
+
+    public void setReviewCount(int reviewCount) {
+        this.reviewCount = reviewCount;
+    }
+
+    public String getDisplayPhone() {
+        return displayPhone;
+    }
+
+    public void setDisplayPhone(String displayPhone) {
+        this.displayPhone = displayPhone;
     }
 
     public String getUrl() {
@@ -48,19 +69,13 @@ public class Restaurant {
         this.url = url;
     }
 
-    public int getReview_count() {
-        return review_count;
-    }
 
-    public void setReview_count(int review_count) {
-        this.review_count = review_count;
-    }
 
-    public List<RestaurantCategory> getCategories() {
+    public RestaurantCategory[] getCategories() {
         return categories;
     }
 
-    public void setCategories(List<RestaurantCategory> categories) {
+    public void setCategories(RestaurantCategory[] categories) {
         this.categories = categories;
     }
 
@@ -80,13 +95,7 @@ public class Restaurant {
         this.location = location;
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public String getPrice() {
         return price;

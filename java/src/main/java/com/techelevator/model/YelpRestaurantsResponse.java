@@ -4,13 +4,13 @@ import java.util.List;
 
 public class YelpRestaurantsResponse {
 
-    private List<Restaurant> restaurants;
+    private Restaurant[] businesses;
 
-    public List<Restaurant> getRestaurants() {
-        return restaurants;
+    public Restaurant[] getBusinesses() {
+        return businesses;
     }
 
-    public void setRestaurants(List<Restaurant> restaurants) {
-        this.restaurants = restaurants;
+    public void setBusinesses(Restaurant[] businesses) {
+        this.businesses = businesses;
     }
 }

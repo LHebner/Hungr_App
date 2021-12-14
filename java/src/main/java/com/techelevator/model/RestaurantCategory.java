@@ -2,13 +2,13 @@ package com.techelevator.model;
 
 public class RestaurantCategory {
 
-    private String category;
+    private String title;
 
-    public String getCategory() {
-        return category;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

@@ -1,14 +1,8 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Restaurant;
-import com.techelevator.services.RestYelpService;
-import com.techelevator.services.YelpDAO;
-import com.techelevator.services.YelpService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
-
-import java.util.List;
 
 
 @Component
