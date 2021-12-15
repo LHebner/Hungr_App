@@ -1,9 +1,12 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Arrays;
 
 public class RestaurantLocation {
 
+    @JsonProperty("display_address")
     private String[] address;
 
     public String[] getAddress() {

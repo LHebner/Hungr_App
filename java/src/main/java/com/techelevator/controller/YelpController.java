@@ -16,13 +16,13 @@ public class YelpController {
     @RequestMapping(path = "/business", method = RequestMethod.GET)
 
     public Restaurant[] filterByStateAndCity(@RequestParam String zipCode, @RequestParam(required = false) String category, @RequestParam String radius) {
-
         System.out.println("it worked?!");
         System.out.println(yelpService);
         return yelpService.getRestaurantsWithRadius(zipCode, category, radius);
   }
 
     @RequestMapping(path = "/business/", method = RequestMethod.GET)
-    public Restaurant getRestaurant() {return yelpService.getRestaurantByID("JNR0sCQ0BMPRbD9bl4hOUA");}
-
+    public Restaurant getRestaurant() {
+        return yelpService.getRestaurantByID("JNR0sCQ0BMPRbD9bl4hOUA");
+    }
 }

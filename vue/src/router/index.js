@@ -60,7 +60,7 @@ const router = new Router({
       name: "invites",
       component: Invites,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -68,7 +68,7 @@ const router = new Router({
       name: "restaurants",
       component: Restaurants,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
   ]

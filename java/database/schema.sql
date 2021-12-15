@@ -6,9 +6,13 @@ DROP TABLE IF EXISTS invite_restaurant;
 DROP TABLE IF EXISTS invite_user;
 DROP TABLE IF EXISTS invite_votes;
 DROP SEQUENCE IF EXISTS seq_user_id;
+DROP TABLE IF EXISTS invite;
 DROP SEQUENCE IF EXISTS seq_invite_id;
+DROP TABLE IF EXISTS invite_restaurant;
 DROP SEQUENCE IF EXISTS seq_invite_restaurant_id;
-DROP SEQUENCE IF EXISTS seq_invite_user_id;
+DROP TABLE IF EXISTS invite_user;
+DROP SEQUENCE IF EXISTS seq_user_id;
+DROP TABLE IF EXISTS invite_votes;
 DROP SEQUENCE IF EXISTS seq_invite_votes_id;
 
 CREATE SEQUENCE seq_user_id

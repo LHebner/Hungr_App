@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 
 public interface YelpService {
 
-//    List<Restaurant> getRestaurantsNoRadius(String zipCode, String category);
-
     Restaurant[] getRestaurantsWithRadius(String zipCode, String category, String radius);
 
     Restaurant getRestaurantByID(String restaurantID);
