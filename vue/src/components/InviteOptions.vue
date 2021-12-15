@@ -1,17 +1,16 @@
 <template>
   <div id="body">
-    <div id="header">
-      <h1>Who do you want to invite?</h1>
-    </div>
+    <h1 id="inviteHeader">Who do you want to invite?</h1>
     <div id="inviteInfo">
       <div id="restaurant">Business Info</div>
       <div id="userList">
         Users
-        <ul></ul>
+        <ul>
           <li>Luke</li>
           <li>Austen</li>
           <li>Ryan</li>
           <li>Carson</li>
+          </ul>
       </div>
       <div id="dateTime">
         When's Dinner?
@@ -26,7 +25,7 @@
 
 <script>
 export default {
-
+  name: "invite-options"
 }
 </script>
 
@@ -37,10 +36,20 @@ export default {
   }
   #inviteInfo {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    column-gap: 20px;
+    align-items: center;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 35px 50px;
+    margin: 35px auto 0 auto;
+    letter-spacing: 0.5px;
   }
-  #header {
+  #inviteHeader {
     text-align: center;
   }
   #dinnerTime {

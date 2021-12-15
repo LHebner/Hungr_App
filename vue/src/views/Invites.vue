@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <navigation />
     <invite-options />
     <!-- <img id="gif" v-if="isLoading" src="../assets/loadingImg.gif"/> -->
@@ -7,7 +7,7 @@
     </div>
     <div id="footer">
       <div id="review">
-        <a id="link" href="https://www.yelp.com/" target="_blank">
+        <a id="yelpLink" href="https://www.yelp.com/" target="_blank">
         Powered by
           <img id="yelpLogo" src="@/assets/YelpLogo.png" alt="Yelp Logo"/>
         </a>
@@ -41,7 +41,21 @@ export default {
 </script>
 
 <style scoped>
-  #header {
+#yelpLink {
+  display: block;
+  margin-right: auto;
+  padding: 4px;
+  color: #ffffff;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+#yelpLogo {
+  height: 50px;
+  max-width: 100%;
+}
+  /* #header {
   font-size: 20pt;
   font-weight: bold;
   display: flex;
@@ -51,10 +65,7 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
 }
-#yelpLogo {
-  display: flex;
-  max-width: 100%;
-}
+
 #review {
   margin-top: 10px;
   align-self: center;
@@ -77,5 +88,5 @@ export default {
 }
 #footer {
   display: flex;
-}
+} */
 </style>

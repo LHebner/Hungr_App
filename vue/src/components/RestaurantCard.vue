@@ -1,7 +1,7 @@
 <template>
   <div id="body"> 
       <h1 id="listTitle">Here are some restaurants you may like!</h1>
-      <ul id="restaurantList"></ul>
+      <ul id="restaurantList">
         <li id="searchResults" v-for="business in getRestaurants" :key="business.id">
           <a :href="business.url" target="_blank" id="name">{{ business.name }}</a>
           <div id="contact">
@@ -12,6 +12,7 @@
           <img id="foodPic" :src="business.image_url"/>
           <button id="invite" v-on:click.prevent="invite()">Invite</button>
         </li>
+        </ul>
     </div>
 </template>
 
@@ -104,7 +105,7 @@ export default {
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 35px 50px;
-    margin: 20px 125px;
+    margin: 35px auto 0 auto;
     color: #ffffff;
     letter-spacing: 0.5px;
 
@@ -112,8 +113,9 @@ export default {
   #name {
     font-size: 45px;
     text-align: center;
-    color: #dfca13;
+    color: #e5f509;
     margin: 0 5px;
+    text-decoration: none;
   }
   #contact {
     width: 250px;

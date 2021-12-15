@@ -1,6 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
+      <img id="hungrLogo" src="@/assets/hungr.png" alt="hungr logo"/>
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
         class="alert alert-danger"
@@ -77,7 +78,7 @@ export default {
 
 <style>
 body {
-  background-color: #312b5f;
+  background-color: #ec4c4c;
 }
 .form-signin{
   height: auto;
@@ -99,6 +100,12 @@ body {
   letter-spacing: 0.5px;
   outline: none;
   border: none;
+}
+#hungrLogo {
+  display: block;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .form-signin h1 {
   font-size: 32px;
