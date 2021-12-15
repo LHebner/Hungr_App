@@ -7,12 +7,10 @@
         <img id="yelpLogo" src="@/assets/YelpLogo.png" alt="Yelp Logo"/>
       </a>
     </div>
-    <restaurant-info :restaurant="r" :key="r.id" v-for="r in theRestaurants" />
   </div>
 </template>
 
 <script>
-import RestaurantInfo from '../components/RestaurantInfo.vue'
 import yelpService from '../services/YelpService.js'
 
 export default {
@@ -22,13 +20,9 @@ export default {
     }
   },
   components: {
-    RestaurantInfo
+    
   },
-  computed: {
-    theRestaurants() {
-      return this.$store.state.favorites;
-    }
-  },
+  computed: {},
   created() {
     this.isLoading = true;
     yelpService.getInvites().then( (response) => {

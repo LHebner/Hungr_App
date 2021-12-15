@@ -1,7 +1,15 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS invite;
+DROP TABLE IF EXISTS invite_restaurant;
+DROP TABLE IF EXISTS invite_user;
+DROP TABLE IF EXISTS invite_votes;
 DROP SEQUENCE IF EXISTS seq_user_id;
+DROP SEQUENCE IF EXISTS seq_invite_id;
+DROP SEQUENCE IF EXISTS seq_invite_restaurant_id;
+DROP SEQUENCE IF EXISTS seq_invite_user_id;
+DROP SEQUENCE IF EXISTS seq_invite_votes_id;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -15,7 +23,7 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
-	email varchar(200) NOT NULL,
+	email varchar(200),
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
@@ -46,8 +54,7 @@ CREATE TABLE invite_restaurant (
   restaurant_id int,
   restaurant_name varchar(200),
   constraint pk_invite_restaurant primary key (invite_restaurant_id),
-  constraint fk_invite foreign key (invite_id) references invite (invite_id),
-  constraint fk_restaurant foreign key (restaurant_id) references favorites (favorite_api_id)
+  constraint fk_invite foreign key (invite_id) references invite (invite_id)
 );
 
 CREATE SEQUENCE seq_invite_user_id
@@ -75,7 +82,6 @@ CREATE TABLE invite_votes (
   voter_id int NOT NULL,
   vote boolean,
   constraint pk_vote primary key (vote_id),
-  constraint fk_restaurant foreign key (restaurant_id) references favorites (favorite_api_id),
   constraint fk_voter foreign key (voter_id) references users (user_id)
 );
 

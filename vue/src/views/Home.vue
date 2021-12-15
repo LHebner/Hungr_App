@@ -4,13 +4,13 @@
       <div id="zipCode">
         <h1 id="zipMessage">Enter your ZIP code!</h1>
         <br>
-        <input id="zipInput" v-model="business.zipCode" type="text"
+        <input id="zipInput" v-model="restaurant.zipCode" type="text"
           placeholder="ex. 45701" maxlength="5" minlength="5" pattern="[0-9]*" />
       </div>
       <div id="distanceOptions">
         <h2 id="distance">Looking for food within</h2>
         <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
-        <select id="distanceRadius" v-model="business.radius" >
+        <select id="distanceRadius" v-model="restaurant.radius" >
           <option value=''>Any Distance</option>
           <option value='1610'>1 Mile</option>
           <option value='8050'>5 Miles</option>
@@ -22,51 +22,51 @@
       <h1 id="soundsGood">What sounds good?</h1>
       <div id="category">
         <div>
-          <input class="foodCategory" value="barbeque" name="barbeque" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="barbeque" name="barbeque" v-model="restaurant.category" type="radio" />
           <label for="barbeque">Barbeque</label>
         </div>
         <div>
-          <input class="foodCategory" value="chinese" name="chinese" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="chinese" name="chinese" v-model="restaurant.category" type="radio" />
           <label for="chinese">Chinese</label>
         </div>
         <div>
-          <input class="foodCategory" value="fast-food" name="fastfood" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="fast-food" name="fastfood" v-model="restaurant.category" type="radio" />
           <label for="fastfood">Fast Food</label>
         </div>
         <div>
-          <input class="foodCategory" value="fine-dining" name="finedining" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="fine-dining" name="finedining" v-model="restaurant.category" type="radio" />
           <label for="finedining">Fine Dining</label>
         </div>
         <div>
-          <input class="foodCategory" value="indian" name="indian" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="indian" name="indian" v-model="restaurant.category" type="radio" />
           <label for="indian">Indian</label>
         </div>
         <div>
-          <input class="foodCategory" value="italian" name="italian" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="italian" name="italian" v-model="restaurant.category" type="radio" />
           <label for="italian">Italian</label>
         </div>
         <div>
-          <input class="foodCategory" value="mexican" name="mexican" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="mexican" name="mexican" v-model="restaurant.category" type="radio" />
           <label for="mexican">Mexican</label>
         </div>
         <div>
-          <input class="foodCategory" value="pizza" name="pizza" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="pizza" name="pizza" v-model="restaurant.category" type="radio" />
           <label for="pizza">Pizza</label>
         </div>
         <div>
-          <input class="foodCategory" value="seafood" name="seafood" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="seafood" name="seafood" v-model="restaurant.category" type="radio" />
           <label for="seafood">Seafood</label>
         </div>
         <div>
-          <input class="foodCategory" value="steakhouse" name="steakhouse" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="steakhouse" name="steakhouse" v-model="restaurant.category" type="radio" />
           <label for="steakhouse">Steakhouse</label>
         </div>
         <div>
-          <input class="foodCategory" value="sushi" name="sushi" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="sushi" name="sushi" v-model="restaurant.category" type="radio" />
           <label for="sushi">Sushi</label>
         </div>
         <div>
-          <input class="foodCategory" value="thai" name="thai" v-model="business.category" type="radio" />
+          <input class="foodCategory" value="thai" name="thai" v-model="restaurant.category" type="radio" />
           <label for="thai">Thai</label>
         </div>
       </div>
@@ -80,10 +80,10 @@
 import yelpService from '../services/YelpService.js'
 
 export default {
-  name: 'business-search',
+  name: 'restaurant-search',
   data() {
     return {
-      business: {
+      restaurant: {
         zipCode: '',
         category: '',
         radius: ''
@@ -92,14 +92,14 @@ export default {
   },
   methods: {
     changeCategory(category) {
-      this.business.category = category;
+      this.restaurant.category = category;
     },
     search() {
-      if (this.business.radius === '') {
-        yelpService.getRestaurantsNoRadius(this.business.zipCode, this.business.category)
+      if (this.restaurant.radius === '') {
+        yelpService.getRestaurantsNoRadius(this.restaurant.zipCode, this.restaurant.category)
         .then( (response) => {
           this.$store.commit("ADD_RESTAURANTS", response.data);
-          this.$router.push("restaurants");
+          this.$router.push("/restaurants");
         }) .catch(error => {
           if (error.response) {
           this.errorMsg =
@@ -117,10 +117,10 @@ export default {
             }
         )
       } else {
-        yelpService.getRestaurantsWithRadius(this.business.zipCode, this.business.category, 
-        this.business.radius).then( (response) => {
+        yelpService.getRestaurantsWithRadius(this.restaurant.zipCode, this.restaurant.category, 
+        this.restaurant.radius).then( (response) => {
           this.$store.commit("ADD_RESTAURANTS", response.data);
-          this.$router.push("restaurants");
+          this.$router.push("/restaurants");
         }) .catch( error => {
           if (error.response) {
             this.errorMsg =
