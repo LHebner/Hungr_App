@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <navigation />
     <invite-options />
     <!-- <img id="gif" v-if="isLoading" src="../assets/loadingImg.gif"/> -->
     <div id="header">
@@ -18,6 +19,7 @@
 <script>
 import yelpService from '../services/YelpService.js'
 import InviteOptions from '../components/InviteOptions.vue'
+import navigation from '../components/Navigation.vue'
 
 export default {
   data() {
@@ -25,7 +27,8 @@ export default {
       isLoading: true
     }
   },
-  components: {InviteOptions},
+  components: {InviteOptions,
+  navigation},
   computed: {},
   created() {
     this.isLoading = true;
