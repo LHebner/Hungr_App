@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img id="gif" v-if="isLoading" src="../assets/loadingImg.gif"/>
+    <invite-options />
+    <!-- <img id="gif" v-if="isLoading" src="../assets/loadingImg.gif"/> -->
     <div id="header">
-      <div id="review">Data provided by </div>
-      <a id="link" href="https://www.yelp.com/" target="_blank">
-        <img id="yelpLogo" src="@/assets/YelpLogo.png" alt="Yelp Logo"/>
-      </a>
+    </div>
+    <div id="footer">
+      <div id="review">
+        <a id="link" href="https://www.yelp.com/" target="_blank">
+        Powered by
+          <img id="yelpLogo" src="@/assets/YelpLogo.png" alt="Yelp Logo"/>
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import yelpService from '../services/YelpService.js'
+import InviteOptions from '../components/InviteOptions.vue'
 
 export default {
   data() {
@@ -19,9 +25,7 @@ export default {
       isLoading: true
     }
   },
-  components: {
-    
-  },
+  components: {InviteOptions},
   computed: {},
   created() {
     this.isLoading = true;
@@ -46,7 +50,7 @@ export default {
 }
 #yelpLogo {
   display: flex;
-  max-width: 320px;
+  max-width: 100%;
 }
 #review {
   margin-top: 10px;
@@ -55,6 +59,7 @@ export default {
   font-size: 20pt;
 }
 #app {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: flex;
   flex-wrap: wrap;
   background-size: cover;
@@ -66,5 +71,8 @@ export default {
   align-self: center;
   width: 200px;
   margin-top: 10px;
+}
+#footer {
+  display: flex;
 }
 </style>

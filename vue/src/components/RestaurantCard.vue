@@ -10,7 +10,7 @@
           <div id="location">{{ business.location.display_address[1] }}</div>
           </div>
           <img id="foodPic" :src="business.image_url"/>
-          <button id="invite">Invite</button>
+          <button id="invite" v-on:click.prevent="invite()">Invite</button>
         </li>
     </div>
 </template>
@@ -29,6 +29,9 @@ export default {
     };
   },
   methods: {
+    invite() {
+      this.$router.push("/invites");
+    },
     // addToInvite() {
     //   yelpService.addInvites(this.$store.state.restaurants[0].id).then( (response) => {
     //     if (response.status === 201) {

@@ -27,7 +27,7 @@ public class RestYelpService implements YelpService {
     @Override
     public Restaurant[] getRestaurantsWithRadius(String zipCode, String category, String radius) {
         YelpRestaurantsResponse response = restTemplate.exchange(BASE_URL +
-                "businesses/search?location="+zipCode+"&term="+category+"&radius="+radius+"&limit=10",
+                "businesses/search?location="+zipCode+"&term="+category+"&radius="+radius+"&limit=20",
                 HttpMethod.GET, makeAuthEntity(TOKEN), YelpRestaurantsResponse.class).getBody();
         return response.getBusinesses();
     }
