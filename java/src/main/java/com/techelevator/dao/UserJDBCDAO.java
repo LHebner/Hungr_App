@@ -48,7 +48,6 @@ public class UserJDBCDAO implements UserDAO {
             User user = mapRowToUser(results);
             users.add(user);
         }
-
         return users;
     }
 

@@ -53,7 +53,7 @@ export default {
           this.$store.commit("REMOVE_RESTAURANT");
           if (this.$store.state.restaurants[0] == null) {
             this.$router.push({
-              path: "/invites",
+              path: "/restaurants",
               query: {matches: "empty"},
             });
           } else {
@@ -67,7 +67,7 @@ export default {
       this.$store.commit("REMOVE_RESTAURANT");
       if (this.$store.state.restaurants[0] == null) {
         this.$router.push({
-          path: "/invites",
+          path: "/restaurants",
           query: {matches: "empty"},
         });
       } else {
@@ -78,7 +78,7 @@ export default {
       this.restaurant = this.$store.state.restaurants[0];
       if (this.restaurant == null) {
         this.$router.push({
-          path: "/invites",
+          path: "/restaurants",
           query: {matches: "none"},
         });
       }
@@ -114,5 +114,4 @@ export default {
 </script>
 
 <style>
-
 </style>

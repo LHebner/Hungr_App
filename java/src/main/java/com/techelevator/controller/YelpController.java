@@ -22,6 +22,7 @@ public class YelpController {
   }
 
     @RequestMapping(path = "/business/", method = RequestMethod.GET)
-    public Restaurant getRestaurant() {return yelpService.getRestaurantByID("JNR0sCQ0BMPRbD9bl4hOUA");}
-    
+    public Restaurant getRestaurant() {
+        return yelpService.getRestaurantByID("JNR0sCQ0BMPRbD9bl4hOUA");
+    }
 }

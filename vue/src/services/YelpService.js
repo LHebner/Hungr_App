@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-// const http = axios.create({
-//   baseURL: "https://localhost:8080"
-// });
-
 export default {
 
   getRestaurantsNoRadius(zipCode, category) {
@@ -30,7 +26,7 @@ export default {
   getEventDetails(eventId) {
     return axios.get(`/invites/${eventId}/restaurants`)
   },
-  addInvites(businessID) {
+  addRestaurants(businessID) {
     return axios.post(`/invites/${businessID}`)
   },
   getInvites() {
