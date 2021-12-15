@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <navigation/>
     <div id="questionnaire">
       <form>
         <div id="zipCode">
@@ -82,6 +83,7 @@
 
 <script>
 import yelpService from '../services/YelpService.js'
+import navigation from '../components/Navigation.vue'
 
 export default {
   name: 'restaurant-search',
@@ -94,6 +96,7 @@ export default {
       },
     };
   },
+  components: {navigation},
   methods: {
     changeCategory(category) {
       this.business.category = category;
@@ -121,13 +124,49 @@ export default {
 </script>
 
 <style>
+.home {
+  height: auto;
+}
+  #questionnaire {
+    height: auto;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -25%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    }
+
+    #questionnaire * {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      outline: none;
+      border: none;
+    }
+
   #zipMessage {
-    margin-top: 100px;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 42px;
+    text-align: center;
   }
 
   #distanceRadius {
     width: 25%;
     color: black;
+  }
+  #distanceRadius option {
+    color: black;
+  }
+
+  #soundsGood {
+    text-align: center;
   }
 
   #category {
@@ -151,5 +190,17 @@ export default {
     font-size: 20px;
     text-align: left;
     margin-bottom: 10px;
+  }
+
+  #customSearch {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight:bold;
+    border-radius: 5px;
+    cursor: pointer;
   }
 </style>

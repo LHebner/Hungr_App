@@ -1,17 +1,17 @@
 <template>
   <div>
+    <navigation />
     <restaurant-card />
   </div>
 </template>
 
 <script>
 import RestaurantCard from '../components/RestaurantCard.vue';
-// import RestaurantList from '../components/RestaurantList.vue'
-
-// import YelpService from '../services/YelpService.js'
+import navigation from '../components/Navigation.vue'
 
 export default {
-  components: { RestaurantCard },
+  components: { RestaurantCard,
+  navigation },
 //   name: "Restaurants",
 //   components: { 
 //     RestaurantList

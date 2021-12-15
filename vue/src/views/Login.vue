@@ -79,7 +79,7 @@ export default {
 body {
   background-color: #312b5f;
 }
-form{
+.form-signin{
   height: auto;
   width: 60%;
   background-color: rgba(255, 255, 255, 0.13);
@@ -93,14 +93,14 @@ form{
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 50px 35px;
 }
-form * {
+.form-signin * {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #ffffff;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
 }
-form h1 {
+.form-signin h1 {
   font-size: 32px;
   font-weight: bold;
   line-height: 42px;
@@ -122,7 +122,7 @@ input {
   margin-top: 8px;
   font-size: 14px;
 }
-button {
+.form-signin button {
   margin-top: 50px;
   width: 100%;
   background-color: #ffffff;
