@@ -1,8 +1,6 @@
 <template>
   <div id="body">
-    <div id="inviteHeader">
-      <h1>Who do you want to invite?</h1>
-    </div>
+    <h1 id="inviteHeader">Who do you want to invite?</h1>
     <div id="inviteInfo">
       <div id="restaurant">Business Info</div>
       <div id="userList">
@@ -83,4 +81,5 @@ export default {
     text-align: center;
 
   }
+  
 </style>

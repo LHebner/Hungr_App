@@ -1,6 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
+      <img id="hungrLogo" src="@/assets/hungr.png" alt="hungr logo"/>
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
         class="alert alert-danger"
@@ -77,12 +78,12 @@ export default {
 
 <style>
 body {
-  background-color: #312b5f;
+  background-color: #ec4c4c;
 }
 .form-signin{
   height: auto;
   width: 60%;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgb(255, 255, 255, .95);
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
