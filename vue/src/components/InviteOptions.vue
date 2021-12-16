@@ -79,6 +79,14 @@ export default {
   #inviteHeader {
     text-align: center;
   }
+  #restaurantList ul {
+    list-style: none;
+    text-align: left;
+  }
+  #favorites {
+    margin-bottom: 10px;
+    color: #ec4c4c;
+  }
   #dinnerTime {
     background: rgba(255,255,255,0.27);
     color: rgb(0, 0, 0);
