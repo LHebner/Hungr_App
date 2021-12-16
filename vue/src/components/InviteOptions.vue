@@ -40,7 +40,8 @@ export default {
     column-gap: 20px;
     align-items: center;
     width: 80%;
-    background-color: rgba(255, 255, 255, 0.13);
+    color: black;
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -54,15 +55,16 @@ export default {
   }
   #dinnerTime {
     background: rgba(255,255,255,0.27);
-    color: #fff;
+    color: rgb(0, 0, 0);
     /* position: relative; */
     cursor: pointer;
     margin-bottom: 10px;
-    border: 2px solid #ffffff;
+    border: 2px solid #ddd;
     font-size: 18px;
     /* padding: 12px; */
     border-radius: 3px;
     width: 180px;
     text-align: center;
   }
+  
 </style>

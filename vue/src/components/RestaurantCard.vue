@@ -99,21 +99,21 @@ export default {
     align-items: center;
     justify-content: center;
     width: 70%;
-    background-color: rgba(255, 255, 255, 0.13);
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 35px 50px;
     margin: 35px auto 0 auto;
-    color: #ffffff;
+    color: rgb(63, 63, 63);
     letter-spacing: 0.5px;
 
   }
   #name {
     font-size: 45px;
     text-align: center;
-    color: #e5f509;
+    color: #ec4c4c;
     margin: 0 5px;
     text-decoration: none;
   }
@@ -134,11 +134,12 @@ export default {
   #invite {
     margin-top: 50px;
     width: 100px;
-    background-color: #ffffff;
-    color: #080710;
+    background-color: rgb(0, 187, 0);
+    color: white;
     padding: 15px 0;
     font-size: 18px;
     font-weight:bold;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
   }

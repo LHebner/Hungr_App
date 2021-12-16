@@ -105,7 +105,7 @@ export default {
 .form-register {
   height: auto;
   width: 60%;
-  background-color: rgba(255, 255, 255, 0.13);
+  background-color: rgba(255, 255, 255, 0.95);
   position: absolute;
   transform: translate(-50%, -40%);
   top: 50%;
@@ -118,7 +118,7 @@ export default {
 }
 .form-register * {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #ffffff;
+  color: black;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
@@ -132,7 +132,7 @@ export default {
 .form-register button {
   margin-top: 50px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #dddddd;
   color: #080710;
   padding: 15px 0;
   font-size: 18px;
