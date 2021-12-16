@@ -39,11 +39,14 @@ CREATE SEQUENCE seq_invite_id
 
 CREATE TABLE invite (
   invite_id int DEFAULT nextval('seq_invite_id'::regclass) NOT NULL,
+  invitee_id int,
+  restaurant_id varchar(200),
   host_id int NOT NULL,
-  name varchar(200),
-  continent_name varchar(200),
+  restaurant_name varchar(200),
+  dinner_date date,
   constraint pk_invite primary key (invite_id),
-  constraint fk_host foreign key (host_id) references users (user_id)
+  constraint fk_host foreign key (host_id) references users (user_id),
+  constraint fk_invitee foreign key (invitee_id) references users (user_id)
  );
 
 CREATE SEQUENCE seq_invite_restaurant_id

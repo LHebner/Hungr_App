@@ -9,7 +9,9 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,6 +41,38 @@ public class InviteJDBCDAO implements InviteDAO {
         }
         return users;
     }
+    private Long id;
+    private int hostId;
+    private int attendeeId;
+    private int restaurantId;
+    private Date date;
+    private String restaurantName;
+
+    @Override
+    public void createInvite(Invite invite) {
+        String sql = "INSERT INTO invite (host_id, invitee_id, restaurant_id, restaurant_name, dinner_date)"
+                + " VALUES (?,?,?,?,?)";
+
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, invite.getHostId(), invite.getAttendeeId(),
+                    invite.getRestaurantId(), invite.getRestaurantName(), invite.getDate());
+        } catch (Exception exception) {
+            System.out.println("Error creating invite: "+ exception);
+        }
+    }
+
+    @Override
+    public List<Invite> getAllInvites() {
+        List<Invite> invites = new ArrayList<>();
+        String sql = "SELECT * FROM invite";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            Invite invite = mapRowToInvite(results);
+            invites.add(invite);
+        }
+        return invites;
+    }
 
     private HttpEntity<String> makeAuthEntity(String token) {
         HttpHeaders headers = new HttpHeaders();
@@ -51,9 +85,17 @@ public class InviteJDBCDAO implements InviteDAO {
         User user = new User();
         user.setId(rs.getLong("user_id"));
         user.setUsername(rs.getString("username"));
-        user.setPassword(rs.getString("password_hash"));
-        user.setAuthorities(rs.getString("role"));
-        user.setActivated(true);
         return user;
+    }
+
+    private Invite mapRowToInvite(SqlRowSet rs) {
+        Invite invite = new Invite();
+        invite.setAttendeeId(rs.getInt("invitee_id"));
+        invite.setRestaurantId(rs.getString("restaurant_id"));
+        invite.setRestaurantName(rs.getString("restaurant_name"));
+        invite.setDate(rs.getDate("dinner_date"));
+        invite.setId(rs.getLong("invite_id"));
+        invite.setHostId(rs.getInt("host_id"));
+        return invite;
     }
 }

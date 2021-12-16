@@ -15,40 +15,17 @@ public class User {
 	   @JsonIgnore
 	   private boolean activated;
 	   private Set<Authority> authorities = new HashSet<>();
-	   private String zip;
-	   private String address;
-	   private String city;
-	   private String state;
-	   private double lat;
-	   private double lng;
+
 	   
 	   public User() { }
 
-	   public User(Long id, String username, String password, String authorities, String zip, double lat, double lng) {
+	   public User(Long id, String username, String password, String authorities) {
 	      this.id = id;
 	      this.username = username;
 	      this.password = password;
 	      this.activated = true;
-	      this.zip = zip;
-	      this.lat = lat;
-	      this.lng = lng;
 	   }
 
-	   public double getLat() {
-	      return lat;
-	   }
-
-	   public void setLat(double lat) {
-		this.lat = lat;
-	   }
-
-	   public double getLng() {
-		return lng;
-	   }
-
-	   public void setLng(double lng) {
-		this.lng = lng;
-	   }
 
 	   public Long getId() {
 	      return id;
@@ -98,57 +75,22 @@ public class User {
 	      }
 	   }
 
-	   public String getZip() {
-	      return zip;
-	   }
-
-	   public void setZip(String zip) {
-	      this.zip = zip;
-	   }
-
-	   public String getAddress() {
-	      return address;
-	   }
-
-	   public void setAddress(String address) {
-	      this.address = address;
-	   }
-
-	   public String getCity() {
-	      return city;
-	   }
-
-	   public void setCity(String city) {
-	      this.city = city;
-	   }
-
-	   public String getState() {
-	      return state;
-	   }
-
-	   public void setState(String state) {
-	      this.state = state;
-	   }
-
 	   @Override
 	   public boolean equals(Object o) {
 	      if (this == o) return true;
 	      if (o == null || getClass() != o.getClass()) return false;
 	      User user = (User) o;
 	      return isActivated() == user.isActivated() &&
-	              Double.compare(user.getLat(), getLat()) == 0 &&
-	              Double.compare(user.getLng(), getLng()) == 0 &&
 	              Objects.equals(getId(), user.getId()) &&
 	              Objects.equals(getUsername(), user.getUsername()) &&
 	              Objects.equals(getPassword(), user.getPassword()) &&
-	              Objects.equals(getAuthorities(), user.getAuthorities()) &&
-	              Objects.equals(getZip(), user.getZip());
+	              Objects.equals(getAuthorities(), user.getAuthorities());
 
 	   }
 
 	   @Override
 	   public int hashCode() {
-	      return Objects.hash(getId(), getUsername(), getPassword(), isActivated(), getAuthorities(), getZip(), getAddress(), getCity(), getState(), getLat(), getLng());
+	      return Objects.hash(getId(), getUsername(), getPassword(), isActivated(), getAuthorities());
 	   }
 
 	   @Override

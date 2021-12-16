@@ -4,24 +4,24 @@
     <div id="inviteInfo">
       <div id="restaurantList">
         <ul>
-          <li id="favorites" v-for="business in getRestaurants" :key="business.id">
+          <li id="favorites" v-for="business in this.$store.state.favorites" :key="business.id">
             <div id="restaurantName">{{ business.name }}</div>
           </li>
         </ul>
       </div>
       <div id="userList">
-        Users
-        <ul></ul>
-          <li v-for="user in users" :key="user.user_id"> 
-            <div id="usernames">{{ user.username }} </div>
-          </li>
+        <select id="usernames" v-model="invite.attendeeId">
+          <option v-for="user in users" :key="user.id" :value="user.id">
+            {{ user.username }}
+          </option>
+        </select>
       </div>
       <div id="dateTime">
         When's Dinner?
-        <input type="date" id="dinnerTime" name="dinnerTime">
+        <input type="date" id="dinnerTime" name="dinnerTime" v-model="invite.date">
       </div>
       <div id="inviteButton">
-        <button id="invite" v-on:click.prevent>Invite</button>
+        <button id="invite" v-on:click.prevent="sendInvite()">Invite</button>
       </div>
     </div>
   </div>
@@ -37,7 +37,14 @@ export default {
       user: {
         username: '',
       },
-      users: []
+      users: [],
+      invite: {
+        restaurantName: this.$store.state.favorites[0].name,
+        restaurantId: this.$store.state.favorites[0].id,
+        hostId: this.$store.state.user.id,
+        attendeeId: '',
+        date: ''
+      }
     }
   },
   mounted() {
@@ -50,10 +57,12 @@ export default {
         this.users = response.data
       })
     },
-  },
-  computed: {
-    getRestaurants() {   
-      return this.$store.state.favorites
+    sendInvite() {
+      userService.sendInvite(this.invite)
+      .then ( (response) => {
+        console.log("Invite Created!", response)
+      });
+      this.$router.push("/confirmation")
     },
   },
   created() {
@@ -108,6 +117,12 @@ export default {
     width: 180px;
     text-align: center;
 
+  }
+  select {
+    width: 50%;
+  }
+  #favorites {
+    color: black;
   }
   
 </style>

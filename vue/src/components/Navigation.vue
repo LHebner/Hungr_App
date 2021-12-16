@@ -25,7 +25,7 @@ export default {
             this.$router.push('/');
         },
         goInvites() {
-            this.$router.push('/invites');
+            this.$router.push('/inviteview');
         },
         logOut() {
             this.$router.push('/logout');
