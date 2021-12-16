@@ -34,5 +34,8 @@ export default {
   },
   deleteInvites(businessID) {
     return axios.delete(`/invites/${businessID}`)
+  },
+  restaurantVote(businessID, wasLiked) {
+    return axios.put('/invites', {businessID, wasLiked})
   }
 }
