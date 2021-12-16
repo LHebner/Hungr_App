@@ -2,13 +2,12 @@
   <div>
     <navigation />
     <invite-options />
-    <!-- <img id="gif" v-if="isLoading" src="../assets/loadingImg.gif"/> -->
     <div id="header">
     </div>
     <div id="footer">
       <div id="review">
-        <a id="yelpLink" href="https://www.yelp.com/" target="_blank">
         Powered by
+        <a id="yelpLink" href="https://www.yelp.com/" target="_blank">
           <img id="yelpLogo" src="@/assets/YelpLogo.png" alt="Yelp Logo"/>
         </a>
       </div>
@@ -27,8 +26,10 @@ export default {
       isLoading: true
     }
   },
-  components: {InviteOptions,
-  navigation},
+  components: {
+    InviteOptions,
+    navigation
+  },
   computed: {},
   created() {
     this.isLoading = true;
@@ -42,6 +43,7 @@ export default {
 
 <style scoped>
 #yelpLink {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: block;
   margin-right: auto;
   padding: 4px;
@@ -54,6 +56,11 @@ export default {
 #yelpLogo {
   height: 50px;
   max-width: 100%;
+}
+
+#review {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: right;
 }
   /* #header {
   font-size: 20pt;

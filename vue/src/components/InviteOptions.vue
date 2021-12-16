@@ -12,7 +12,9 @@
       <div id="userList">
         Users
         <ul></ul>
-          <li v-for="user in listUsers" :key="user.user_id"> {{ user.username }} </li>
+          <li v-for="user in users" :key="user.user_id"> 
+            <div id="usernames">{{ user.username }} </div>
+          </li>
       </div>
       <div id="dateTime">
         When's Dinner?
@@ -34,7 +36,8 @@ export default {
     return {
       user: {
         username: '',
-      }
+      },
+      users: []
     }
   },
   mounted() {
@@ -42,14 +45,19 @@ export default {
   },
   methods: {
     listUsers() {
-      userService.getAllUsers;
+      userService.getAllUsers()
+      .then( (response) => {
+        this.users = response.data
+      })
     },
   },
   computed: {
-    getRestaurants() {
-      
+    getRestaurants() {   
       return this.$store.state.favorites
-    }
+    },
+  },
+  created() {
+    this.listUsers()
   }
 
 }

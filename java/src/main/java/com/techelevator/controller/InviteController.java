@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.security.Principal;
 
@@ -26,7 +27,7 @@ import javax.validation.Valid;
 
 @RestController
 @CrossOrigin
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 public class InviteController {
 
 	private final TokenProvider tokenProvider;
@@ -40,9 +41,9 @@ public class InviteController {
 		this.userDAO = userDAO;
     }
 
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public void getAllUsers() {
-		System.out.println("it worked?!");
-		System.out.println(userDAO.findAll());
+	@RequestMapping(path = "/users", method = RequestMethod.GET)
+	public List<User> getAllUsers() {
+		List<User> users = inviteDAO.findAll();
+		return users;
 	}
 }

@@ -39,7 +39,7 @@ export default {
     addFavorites(event, restaurant) {
       console.log(event.target.checked, restaurant)
       if (event.target.checked) {
-        console.log("work?")
+        // console.log("work?")
         this.$store.commit("ADD_FAVORITE", restaurant)
       } else {
         this.$store.commit("DELETE_FAVORITE", restaurant)
