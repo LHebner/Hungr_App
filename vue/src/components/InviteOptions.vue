@@ -2,7 +2,13 @@
   <div id="body">
     <h1 id="inviteHeader">Who do you want to invite?</h1>
     <div id="inviteInfo">
-      <div id="restaurant">Business Info</div>
+      <div id="restaurantList">
+        <ul>
+          <li id="favorites" v-for="business in getRestaurants" :key="business.id">
+            <div id="restaurantName">{{ business.name }}</div>
+          </li>
+        </ul>
+      </div>
       <div id="userList">
         Users
         <ul></ul>
@@ -37,6 +43,12 @@ export default {
   methods: {
     listUsers() {
       userService.getAllUsers;
+    },
+  },
+  computed: {
+    getRestaurants() {
+      
+      return this.$store.state.favorites
     }
   }
 

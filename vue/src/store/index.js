@@ -77,6 +77,12 @@ export default new Vuex.Store({
       state.restaurant = business;
       state.rejects.push(state.restaurant);
     },
+    ADD_FAVORITE(state, business) {
+      state.favorites.push(business)
+    },
+    DELETE_FAVORITE(state, business) {
+      state.favorites.shift(business)
+    },
     MAKE_FAVORITES(state,data) {
       state.favorites = [];
       data.forEach( business => {
