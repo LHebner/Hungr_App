@@ -3,7 +3,10 @@ package com.techelevator.controller;
 import java.util.List;
 import java.security.Principal;
 
+import com.techelevator.model.User;
+import com.techelevator.security.jwt.TokenProvider;
 import com.techelevator.services.RestYelpService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
@@ -23,17 +26,23 @@ import javax.validation.Valid;
 
 @RestController
 @CrossOrigin
-@PreAuthorize("isAuthenticated()")
+//@PreAuthorize("isAuthenticated()")
 public class InviteController {
 
+	private final TokenProvider tokenProvider;
 	private InviteDAO inviteDAO;
+	@Autowired
+	private UserDAO userDAO;
 	
-//	public InviteController(InviteDAO inviteDAO) {
-//		this.inviteDAO = inviteDAO;
-//    }
+	public InviteController(TokenProvider tokenProvider, InviteDAO inviteDAO, UserDAO userDAO) {
+		this.tokenProvider = tokenProvider;
+		this.inviteDAO = inviteDAO;
+		this.userDAO = userDAO;
+    }
 
-
-
-
-
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public void getAllUsers() {
+		System.out.println("it worked?!");
+		System.out.println(userDAO.findAll());
+	}
 }

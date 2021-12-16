@@ -101,4 +101,43 @@ export default {
 </script>
 
 <style>
+.form-register {
+  height: auto;
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.95);
+  position: absolute;
+  transform: translate(-50%, -40%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  padding: 50px 35px;
+}
+.form-register * {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: black;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+.form-register h1 {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 42px;
+  text-align: center;
+}
+.form-register button {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #dddddd;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight:bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 </style>

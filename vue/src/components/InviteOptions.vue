@@ -1,6 +1,6 @@
 <template>
   <div id="body">
-    <div id="header">
+    <div id="inviteHeader">
       <h1>Who do you want to invite?</h1>
     </div>
     <div id="inviteInfo">
@@ -8,10 +8,7 @@
       <div id="userList">
         Users
         <ul></ul>
-          <li>Luke</li>
-          <li>Austen</li>
-          <li>Ryan</li>
-          <li>Carson</li>
+          <li v-for="user in listUsers" :key="user.user_id"> {{ user.username }} </li>
       </div>
       <div id="dateTime">
         When's Dinner?
@@ -25,7 +22,25 @@
 </template>
 
 <script>
+import userService from '../services/UserService';
+
 export default {
+  name: "invite-options",
+  data() {
+    return {
+      user: {
+        username: '',
+      }
+    }
+  },
+  mounted() {
+    this.listUsers;
+  },
+  methods: {
+    listUsers() {
+      userService.getAllUsers;
+    }
+  }
 
 }
 </script>
@@ -37,23 +52,35 @@ export default {
   }
   #inviteInfo {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    column-gap: 20px;
+    align-items: center;
+    width: 80%;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 35px 50px;
+    margin: 35px auto 0 auto;
+    letter-spacing: 0.5px;
   }
-  #header {
+  #inviteHeader {
     text-align: center;
   }
   #dinnerTime {
     background: rgba(255,255,255,0.27);
-    color: #fff;
+    color: rgb(0, 0, 0);
     /* position: relative; */
     cursor: pointer;
     margin-bottom: 10px;
-    border: 2px solid #ffffff;
+    border: 2px solid #ddd;
     font-size: 18px;
     /* padding: 12px; */
     border-radius: 3px;
     width: 180px;
     text-align: center;
+
   }
 </style>

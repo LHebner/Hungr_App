@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
 
-  getUsers() {
-    return axios.get('')
+  getAllUsers() {
+    return axios.get('/users')
   }
 }

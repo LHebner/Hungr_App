@@ -3,13 +3,13 @@ import axios from 'axios';
 export default {
 
   getRestaurantsNoRadius(zipCode, category) {
-    return axios.get(`/businesses?zipCode=${zipCode}&category=${category}`)
+    return axios.get(`/business?zipCode=${zipCode}&category=${category}`)
   },
   getRestaurantsWithRadius(zipCode, category, radius) {
     return axios.get(`/business?zipCode=${zipCode}&category=${category}&radius=${radius}`)
   },
   getBusinessByID(businessID) {
-    return axios.get(`/businesses/${businessID}`)
+    return axios.get(`/business/${businessID}`)
   },
   getReviews(businessID) {
     return axios.get(`/reviews/${businessID}`)
