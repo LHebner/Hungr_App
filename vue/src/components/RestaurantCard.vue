@@ -10,18 +10,21 @@
           <div id="location">{{ business.location.display_address[1] }}</div>
           </div>
           <img id="foodPic" :src="business.image_url"/>
-          <button id="invite" v-on:click.prevent="invite()">Invite</button>
+          <input id="check" type="checkbox" v-on:change="addFavorites($event, business)"/>
         </li>
         </ul>
+        <button id="invite" v-on:click.prevent="invite()">Invite</button>
     </div>
 </template>
 
 <script>
+// import YelpService from '../services/YelpService';
 
 export default {
   name: "restaurant-card",
   data() {
     return {
+      // selected: true,
       business: {
         zipCode: '',
         category: '',
@@ -33,41 +36,14 @@ export default {
     invite() {
       this.$router.push("/invites");
     },
-    // addToInvite() {
-    //   yelpService.addInvites(this.$store.state.restaurants[0].id).then( (response) => {
-    //     if (response.status === 201) {
-    //       this.$store.commit("REMOVE_RESTAURANT");
-    //       if (this.$store.state.restaurants[0] == null) {
-    //         this.$router.push({
-    //           path: "/restaurants",
-    //           query: {matches: "empty"},
-    //         });
-    //       } else {
-    //         this.restaurant = this.$store.state.restaurants[0];
-    //       }
-    //     }
-    //   });
-    // },
-    // addReject() {
-    //   this.$store.commit("ADD_REJECTS", this.restaurant);
-    //   this.$store.commit("REMOVE_RESTAURANT");
-    //   if (this.$store.state.restaurants[0] == null) {
-    //     this.$router.push({
-    //       path: "/restaurants",
-    //       query: {matches: "empty"},
-    //     });
-    //   } else {
-    //     this.restaurant = this.$store.state.restaurants[0];
-    //   }
-    // },
-    created() {
-    //   this.restaurant = this.$store.state.restaurants[0];
-    //   if (this.restaurant == null) {
-    //     this.$router.push({
-    //       path: "/restaurants",
-    //       query: {matches: "none"},
-    //     });
-    //   }
+    addFavorites(event, restaurant) {
+      console.log(event.target.checked, restaurant)
+      if (event.target.checked) {
+        // console.log("work?")
+        this.$store.commit("ADD_FAVORITE", restaurant)
+      } else {
+        this.$store.commit("DELETE_FAVORITE", restaurant)
+      }
     }
   },
   computed: {

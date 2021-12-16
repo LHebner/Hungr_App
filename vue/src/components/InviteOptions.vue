@@ -2,15 +2,19 @@
   <div id="body">
     <h1 id="inviteHeader">Who do you want to invite?</h1>
     <div id="inviteInfo">
-      <div id="restaurant">Business Info</div>
+      <div id="restaurantList">
+        <ul>
+          <li id="favorites" v-for="business in getRestaurants" :key="business.id">
+            <div id="restaurantName">{{ business.name }}</div>
+          </li>
+        </ul>
+      </div>
       <div id="userList">
         Users
-        <ul>
-          <li>Luke</li>
-          <li>Austen</li>
-          <li>Ryan</li>
-          <li>Carson</li>
-          </ul>
+        <ul></ul>
+          <li v-for="user in users" :key="user.user_id"> 
+            <div id="usernames">{{ user.username }} </div>
+          </li>
       </div>
       <div id="dateTime">
         When's Dinner?
@@ -24,8 +28,38 @@
 </template>
 
 <script>
+import userService from '../services/UserService';
+
 export default {
-  name: "invite-options"
+  name: "invite-options",
+  data() {
+    return {
+      user: {
+        username: '',
+      },
+      users: []
+    }
+  },
+  mounted() {
+    this.listUsers;
+  },
+  methods: {
+    listUsers() {
+      userService.getAllUsers()
+      .then( (response) => {
+        this.users = response.data
+      })
+    },
+  },
+  computed: {
+    getRestaurants() {   
+      return this.$store.state.favorites
+    },
+  },
+  created() {
+    this.listUsers()
+  }
+
 }
 </script>
 
@@ -65,6 +99,7 @@ export default {
     border-radius: 3px;
     width: 180px;
     text-align: center;
+
   }
   
 </style>
