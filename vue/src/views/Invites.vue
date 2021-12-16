@@ -35,7 +35,8 @@ export default {
     this.isLoading = true;
     yelpService.getInvites().then( (response) => {
       this.isLoading = false;
-      this.$store.commit("MAKE_FAVORITES", response.data);
+      // this.$store.commit("MAKE_FAVORITES", response.data);
+      console.log(response)
     });
   }
 }

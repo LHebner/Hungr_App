@@ -12,6 +12,8 @@ public interface InviteDAO {
 
     List<User> findAll();
 
+    List<Invite> getAllInvites();
 
+    void createInvite(Invite invite);
 
 }

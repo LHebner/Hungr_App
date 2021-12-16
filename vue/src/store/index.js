@@ -36,7 +36,13 @@ export default new Vuex.Store({
       location: [],
       display_phone: '',
       price: ''
-    }
+    },
+    invite: {
+      sender: '',
+      recipient: '',
+      restaurant: '',
+      date: ''
+    },
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -73,6 +79,11 @@ export default new Vuex.Store({
     REMOVE_RESTAURANT(state) {
       state.restaurants.shift();
     },
+    CREATE_INVITE(state, data) {
+      data.forEach( (response) => {
+        state.invite = response
+      })
+    },
     ADD_REJECTS(state, business) {
       state.restaurant = business;
       state.rejects.push(state.restaurant);
@@ -96,6 +107,5 @@ export default new Vuex.Store({
       });
       state.favorites = temporary;
     }
-    
   }
 })

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.security.Principal;
 
+import com.techelevator.model.Invite;
 import com.techelevator.model.User;
 import com.techelevator.security.jwt.TokenProvider;
 import com.techelevator.services.RestYelpService;
@@ -45,5 +46,16 @@ public class InviteController {
 	public List<User> getAllUsers() {
 		List<User> users = inviteDAO.findAll();
 		return users;
+	}
+
+	@RequestMapping(path = "/invites", method = RequestMethod.GET)
+	public List<Invite> getAllInvites() {
+		List<Invite> invites = inviteDAO.getAllInvites();
+		return invites;
+	}
+
+	@RequestMapping(path = "/invites", method = RequestMethod.POST)
+	public void createInvite(@RequestBody Invite invite) {
+		inviteDAO.createInvite(invite);
 	}
 }

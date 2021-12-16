@@ -1,11 +1,15 @@
 package com.techelevator.model;
 
+import java.util.Date;
+
 public class Invite {
 
     private Long id;
     private int hostId;
     private int attendeeId;
-    private int restaurantId;
+    private String restaurantId;
+    private Date date;
+    private String restaurantName;
 
     public Long getId() {
         return id;
@@ -31,11 +35,27 @@ public class Invite {
         this.attendeeId = attendeeId;
     }
 
-    public int getRestaurantIdId() {
+    public String getRestaurantId() {
         return restaurantId;
     }
 
-    public void setRestaurantIdId(int restaurantId) {
+    public void setRestaurantId(String restaurantId) {
         this.restaurantId = restaurantId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
     }
 }

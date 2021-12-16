@@ -1,5 +1,6 @@
 <template>
     <div id="main">
+        <navigation />
         <h1>You've Been Invited!</h1>
         <div id="Like">
             <button id="Like" v-on:click.prevent="Like()">👍</button>
@@ -13,9 +14,17 @@
 
 <script>
 import yelpService from '../services/YelpService.js'
+import Navigation from '../components/Navigation.vue'
+import userService from '../services/UserService.js'
 
 export default {
     name: "invite-view",
+    components: {Navigation},
+    data() {
+        return {
+            inviteList : [],
+        }
+    },
     methods: {
         Like(businessId, inviteId) {
             yelpService.restaurantVote(businessId, true).then((response) => {
@@ -40,6 +49,12 @@ export default {
             return likes - dislikes;
         },
     },
+    created() {
+        userService.getAllInvites()
+        .then( response => {
+            this.inviteList = response.data
+        })
+    }
 };
 </script>
 
