@@ -42,6 +42,7 @@ export default {
         restaurantName: this.$store.state.favorites[0].name,
         restaurantId: this.$store.state.favorites[0].id,
         hostId: this.$store.state.user.id,
+        hostName: this.getHostName,
         attendeeId: '',
         date: ''
       }
@@ -64,6 +65,9 @@ export default {
       });
       this.$router.push("/confirmation")
     },
+    getHostName() {
+      this.invite.hostName = userService.getUserById(this.invite.hostId)
+    }
   },
   created() {
     this.listUsers()

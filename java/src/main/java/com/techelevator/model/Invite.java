@@ -6,6 +6,7 @@ public class Invite {
 
     private Long id;
     private int hostId;
+    private String hostName;
     private int attendeeId;
     private String restaurantId;
     private Date date;
@@ -57,5 +58,13 @@ public class Invite {
 
     public void setRestaurantName(String restaurantName) {
         this.restaurantName = restaurantName;
+    }
+
+    public String getHostName() {
+        return hostName;
+    }
+
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
     }
 }

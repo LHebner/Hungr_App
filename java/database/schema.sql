@@ -42,6 +42,7 @@ CREATE TABLE invite (
   invitee_id int,
   restaurant_id varchar(200),
   host_id int NOT NULL,
+  host_name varchar(200),
   restaurant_name varchar(200),
   dinner_date date,
   constraint pk_invite primary key (invite_id),

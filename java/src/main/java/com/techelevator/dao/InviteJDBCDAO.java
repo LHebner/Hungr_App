@@ -41,21 +41,15 @@ public class InviteJDBCDAO implements InviteDAO {
         }
         return users;
     }
-    private Long id;
-    private int hostId;
-    private int attendeeId;
-    private int restaurantId;
-    private Date date;
-    private String restaurantName;
 
     @Override
     public void createInvite(Invite invite) {
-        String sql = "INSERT INTO invite (host_id, invitee_id, restaurant_id, restaurant_name, dinner_date)"
-                + " VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO invite (host_id, host_name, invitee_id, restaurant_id, restaurant_name, dinner_date)"
+                + " VALUES (?,?,?,?,?,?)";
 
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, invite.getHostId(), invite.getAttendeeId(),
-                    invite.getRestaurantId(), invite.getRestaurantName(), invite.getDate());
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, invite.getHostId(), invite.getHostName(),
+                    invite.getAttendeeId(), invite.getRestaurantId(), invite.getRestaurantName(), invite.getDate());
         } catch (Exception exception) {
             System.out.println("Error creating invite: "+ exception);
         }
@@ -93,6 +87,7 @@ public class InviteJDBCDAO implements InviteDAO {
         invite.setAttendeeId(rs.getInt("invitee_id"));
         invite.setRestaurantId(rs.getString("restaurant_id"));
         invite.setRestaurantName(rs.getString("restaurant_name"));
+        invite.setHostName(rs.getString("host_name"));
         invite.setDate(rs.getDate("dinner_date"));
         invite.setId(rs.getLong("invite_id"));
         invite.setHostId(rs.getInt("host_id"));
