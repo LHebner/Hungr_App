@@ -103,6 +103,7 @@ export default {
   #favorites {
     margin-bottom: 10px;
     color: #ec4c4c;
+    border-bottom: 2px solid #ec4c4c;
   }
   #dinnerTime {
     background: rgba(255,255,255,0.27);
@@ -119,7 +120,7 @@ export default {
 
   }
   select {
-    width: 50%;
+    width: 80%;
   }
   #favorites {
     color: black;

@@ -143,7 +143,7 @@ input {
 }
 #link {
   display: block;
-  margin: 30px 300px 0 300px;
+  margin: 30px auto 0 auto;
   width: 150px;
   border-radius: 3px;
   padding:5px;

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>
       <navigation />
-    </div>Invite Sent!</div>
+    <div id="sent">Invite Sent!</div>
+    </div>
 </template>
 
 <script>
@@ -15,5 +15,13 @@ export default {
 </script>
 
 <style>
-
+  #sent{
+    color: #ffffff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 15%;
+    text-shadow: 0px 5px 10px rgb(60, 62, 70);
+  }
 </style>

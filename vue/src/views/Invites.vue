@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-#yelpLink {
+#review {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: block;
   margin-right: auto;

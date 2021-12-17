@@ -1,6 +1,7 @@
 <template>
-    <div id="main">
+    <div>
         <navigation />
+    <div id="inviteMain">
         <h1>You've Been Invited!</h1>
         <div id="Like">
             <button id="Like" v-on:click.prevent="Like()">👍</button>
@@ -9,7 +10,7 @@
             <button id="Dislike" v-on:click.prevent="Like()">👎</button>
         </div>
     </div>
-  
+  </div>
 </template>
 
 <script>
@@ -62,9 +63,10 @@ export default {
 body {
   background-color: #ec4c4c;
 }
-#main{
+#inviteMain{
   height: auto;
   width: 60%;
+  margin-top: 35px;
   background-color: rgb(255, 255, 255, .95);
   position: absolute;
   transform: translate(-50%, -50%);
@@ -76,20 +78,20 @@ body {
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 50px 35px;
 }
-#main * {
+#inviteMain * {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: black;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
 }
-#main h1 {
+#inviteMain h1 {
   font-size: 32px;
   font-weight: bold;
   line-height: 42px;
   text-align: center;
 }
-#main button {
+#inviteMain button {
   margin-top: 50px;
   width: 100%;
   background-color: #dddddd;
@@ -99,5 +101,11 @@ body {
   font-weight:bold;
   border-radius: 5px;
   cursor: pointer;
+}
+#Like button{
+    background-color: rgb(0, 185, 0);
+}
+#Dislike button {
+    background-color: rgb(255, 43, 43);;
 }
 </style>

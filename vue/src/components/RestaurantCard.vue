@@ -66,6 +66,8 @@ export default {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
+    padding: 1px;
+    margin: 1px;
   }
   
   #searchResults {
@@ -81,7 +83,7 @@ export default {
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 35px 50px;
-    margin: 35px auto 0 auto;
+    margin: 35px auto 35px auto;
     color: rgb(63, 63, 63);
     letter-spacing: 0.5px;
 
@@ -92,6 +94,9 @@ export default {
     color: #ec4c4c;
     margin: 0 5px;
     text-decoration: none;
+  }
+  #name:hover {
+    color: #ff6d8d;
   }
   #contact {
     width: 250px;
@@ -107,9 +112,13 @@ export default {
     height: 10rem;
     max-width: 100%;
   }
+  #check {
+    cursor: pointer;
+  }
   #invite {
-    margin-top: 50px;
-    width: 100px;
+    display: block;
+    margin: auto;
+    width: 70%;
     background-color: rgb(0, 187, 0);
     color: white;
     padding: 15px 0;
