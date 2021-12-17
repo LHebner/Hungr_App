@@ -1,15 +1,20 @@
 <template>
     <div>
         <navigation />
-    <div id="inviteMain">
-        <h1>You've Been Invited!</h1>
-        <div id="Like">
-            <button id="Like" v-on:click.prevent="Like()">👍</button>
-        </div>
-        <div id="Dislike">
-            <button id="Dislike" v-on:click.prevent="Like()">👎</button>
-        </div>
-    </div>
+        <ul id="inviteMain">
+            <li id="inviteList" v-for="invite in inviteList" :key="invite.id" :value="invite.id">
+                <h1>
+                    You've Been Invited to {{ invite.restaurantName }} on {{ invite.date }} by 
+                    {{ (invite.hostId) }}
+                </h1>
+                <div id="Like">
+                    <button id="Like" v-on:click.prevent="Like()">👍</button>
+                </div>
+                <div id="Dislike">
+                    <button id="Dislike" v-on:click.prevent="Like()">👎</button>
+                </div>
+            </li>
+        </ul>
   </div>
 </template>
 
@@ -24,6 +29,8 @@ export default {
     data() {
         return {
             inviteList : [],
+            hostId : '',
+
         }
     },
     methods: {
@@ -49,12 +56,21 @@ export default {
         GetPopularity(likes, dislikes) {
             return likes - dislikes;
         },
+        listInvites() {
+            userService.getAllInvites()
+            .then( (response) => {
+                this.inviteList = response.data
+            })
+        },
+        getHostName(hostId) {
+            userService.getUserById(hostId)
+            .then( (response) => {
+                this.hostName = response.data
+            })
+        }
     },
     created() {
-        userService.getAllInvites()
-        .then( response => {
-            this.inviteList = response.data
-        })
+        this.listInvites()
     }
 };
 </script>

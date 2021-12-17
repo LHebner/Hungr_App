@@ -48,6 +48,11 @@ public class InviteController {
 		return users;
 	}
 
+	@RequestMapping(path = "/users/{id}", method = RequestMethod.GET)
+	public User getUserById(Long id) {
+		return userDAO.getUserById(id);
+	}
+
 	@RequestMapping(path = "/invites", method = RequestMethod.GET)
 	public List<Invite> getAllInvites() {
 		List<Invite> invites = inviteDAO.getAllInvites();
