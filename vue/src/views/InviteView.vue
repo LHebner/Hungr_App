@@ -4,14 +4,14 @@
         <ul id="inviteMain">
             <li id="inviteList" v-for="invite in inviteList" :key="invite.id" :value="invite.id">
                 <h1>
-                    You've Been Invited to {{ invite.restaurantName }} on {{ invite.date }} by 
-                    {{ (invite.hostId) }}
+                    You've Been Invited to {{ invite.restaurantName }} on {{ invite.date }}!
                 </h1>
+                
                 <div id="Like">
-                    <button id="Like" v-on:click.prevent="Like()">👍</button>
+                    <button id="Like" v-on:click.prevent="Dislike()">👍</button>
                 </div>
                 <div id="Dislike">
-                    <button id="Dislike" v-on:click.prevent="Like()">👎</button>
+                    <button id="Dislike" v-on:click.prevent="Dislike()">👎</button>
                 </div>
             </li>
         </ul>
@@ -34,15 +34,7 @@ export default {
         }
     },
     methods: {
-        Like(businessId, inviteId) {
-            yelpService.restaurantVote(businessId, true).then((response) => {
-                if (response.status === 200) {
-                    yelpService.getEventDetails(inviteId).then((response) => {
-                        this.eventDetails = response.data;
-                    });
-                }
-            });
-        },
+        
         Dislike(businessId, inviteId) {
             yelpService.getEventDetails(inviteId);
             yelpService.restaurantVote(businessId, false).then((response) => {
@@ -80,14 +72,13 @@ body {
   background-color: #ec4c4c;
 }
 #inviteMain{
+    display: block;
+    margin: 15px auto 0 auto;
+    list-style: none;
   height: auto;
   width: 60%;
   margin-top: 35px;
   background-color: rgb(255, 255, 255, .95);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);

@@ -78,7 +78,7 @@ const router = new Router({
       name: "inviteview",
       component: InviteView,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
